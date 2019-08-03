@@ -1,0 +1,32 @@
+
+#hystrix的超时时间
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 6000
+
+anyi:
+  url: http://localhost:8888
+
+ribbon:
+  #请求处理的超时时间（2分钟）
+  ReadTimeout: 120000
+  #请求连接的超时时间(30秒)
+  ConnectTimeout: 30000
+  #重试相同的服务，默认次数为1
+  MaxAutoRetrues: 3
+  #重试下一台服务，默认为1
+  MaxAutoRetruesNextServer: 1
+  #无论是超时还是connet异常，统统重试，默认为false，
+  okToRetryOnAllOperations: true
+
+# LOGGING
+logging:
+  level:
+    root: INFO
+    com.base: DEBUG
